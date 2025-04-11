@@ -1,10 +1,10 @@
-<section>
+<section >
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div class="mx-auto max-w-3xl">
         <header class="text-center">
           <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
         </header>
-  
+      @if(carts().length > 0) { 
         <div class="mt-8">
           <ul class="space-y-4">
       @for (cart of carts(); track cart) {
@@ -12,7 +12,7 @@
               <img
                 [src]="cart.product.image"
                 [alt]="cart.product.title"
-                class="size-14 rounded-sm"
+                class="w-10 rounded-sm"
               />
   
               <div>
@@ -24,7 +24,7 @@
             <app-remove-cart [id]="cart.product.id"/>
             </div>
             </li>
-          }
+        }
           </ul>
   
           <div class="mt-8 flex justify-end border-t border-gray-100 pt-8">
@@ -57,6 +57,16 @@
             </div>
           </div>
         </div>
-      </div>
+      }@else {
+        <div class="w-full h-[50vh] flex flex-col justify-center items-center gap-7">
+          <h2 class="text-xl md:text-2xl capitalize font-bold text-orange-900">sorry your cart is empty!</h2>
+          <a routerLink="/products" class="btn btn-lg capitalize btn-neutral bg-orange-800 hover:bg-orange-600 duration-200">
+            continue shopping
+          </a>
+          </div>
+   
+      }
+    </div>
+      
     </div>
   </section>

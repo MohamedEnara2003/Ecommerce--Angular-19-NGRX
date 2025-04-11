@@ -8,11 +8,12 @@ import { CartType } from '../interface/cart';
 import { combineLatest, map} from 'rxjs';
 import { SharedModule } from '../../shared/modules/shared.module';
 import { RemoveCartComponent } from "../components/remove-cart/remove-cart.component";
+import { ErrorMsgComponent } from "../../shared/components/error-msg/error-msg.component";
 
 
 @Component({
   selector: 'app-cart',
-  imports: [QuantityFieldComponent, SharedModule, RemoveCartComponent],
+  imports: [QuantityFieldComponent, SharedModule, RemoveCartComponent, ErrorMsgComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
