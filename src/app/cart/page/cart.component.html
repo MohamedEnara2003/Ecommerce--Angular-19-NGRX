@@ -4,7 +4,7 @@
         <header class="text-center">
           <h1 class="text-xl font-bold text-gray-900 sm:text-3xl">Your Cart</h1>
         </header>
-      @if(carts().length > 0) { 
+      @if(carts()?.length! > 0) { 
         <div class="mt-8">
           <ul class="space-y-4">
       @for (cart of carts(); track cart) {

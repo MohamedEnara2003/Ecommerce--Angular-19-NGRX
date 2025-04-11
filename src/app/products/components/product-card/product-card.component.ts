@@ -16,6 +16,7 @@ import { CartService } from '../../../cart/service/cart.service';
                         class="p-8 rounded-t-lg w-45 object-contain object-center"
                         [src]="product.image"
                         alt="product image"
+                        loading="lazy"
                         />
         </picture>
     <div class="px-5 pb-5">

@@ -1,25 +1,25 @@
 
 
     <div class="container mx-auto px-4 py-8">
-        @if(product()) { 
+        @if(productData()?.product) { 
     <div class="w-full flex flex-wrap justify-between items-start ">
 
-        <div class="w-[95%] sm:w-[50%] mb-8 flex justify-center items-center">
-        <img [src]="product()?.image" alt="Product"
-            class="w-[80%] h-auto rounded-lg shadow-md mb-4" id="mainImage">
-        </div>
+        <picture class="w-[95%] sm:w-[50%] mb-8 flex justify-center items-center">
+        <img [src]="productData()?.product?.image" alt="Product" loading="lazy"
+        class="w-[80%] h-auto rounded-lg shadow-md mb-4" id="mainImage">
+        </picture>
 
         <div class="w-[95%] sm:w-[50%]">
-        <h2 class="text-3xl font-bold mb-2 text-orange-950">{{product()?.title}}</h2>
+        <h2 class="text-3xl font-bold mb-2 text-orange-950">{{productData()?.product?.title}}</h2>
         <p class="text-gray-600 mb-4">SKU: WH1000XM4</p>
         <div class="mb-4">
-            <span class="text-2xl font-bold mr-2 text-orange-950">{{product()?.price | currency}}</span>
+            <span class="text-2xl font-bold mr-2 text-orange-950">{{productData()?.product?.price | currency}}</span>
         </div>
 
         <div class=" flex flex-wrap items-center mb-4 gap-4">
-        <app-stars-rating  [productRate]="product()?.rating?.rate!"/>
+        <app-stars-rating  [productRate]="productData()?.product?.rating?.rate!"/>
         <p class="text-orange-700 mb-6">
-        {{product()?.description}}
+        {{productData()?.product?.description}}
         </p>
         
     
@@ -42,12 +42,12 @@
       </div>
     </div>
 }
-@if(product() !== undefined){
- <app-related-product  [product]="product()" class="w-full "/>
+@if(productData() !== undefined){
+<app-related-product  [product]="productData()?.product" class="w-full "/>
 }
 
-<app-loading [isLoading]="isLoading()" />
-<app-error-msg [errorMsg]="errorMsg()"/>
+<app-loading [isLoading]="productData()?.loading!" />
+<app-error-msg [errorMsg]="productData()?.error!"/>
 </div>
 
   
