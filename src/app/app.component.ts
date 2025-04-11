@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { HeaderComponent } from "./shared/components/header/header.component";
-import { initFlowbite } from 'flowbite';
 import { cartActions } from './cart/reducers/actions.types';
 import { CartType } from './cart/interface/cart';
 import { productsActions } from './products/reducers/action-types';
@@ -28,7 +27,6 @@ export class AppComponent implements OnInit {
   }
   
   ngOnInit(): void {
-  initFlowbite() ; 
   this.initLoadCarts();
   }
 
