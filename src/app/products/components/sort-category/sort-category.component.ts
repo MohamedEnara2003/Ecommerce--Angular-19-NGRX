@@ -10,7 +10,7 @@ import { SharedModule } from '../../../shared/modules/shared.module';
     
   <li [routerLink]="['/products']" [queryParams]="{category : null}" > 
   <a (click)="selected.set('ALL') " 
-  class="btn btn-neutral  bg-orange-900 text-orange-100"
+  class="btn btn-neutral  bg-orange-700 text-orange-100"
   [ngClass]="selected() === 'ALL' ? 'bg-transparent text-orange-600' : ''">
   all Products</a>
   </li>
@@ -18,7 +18,7 @@ import { SharedModule } from '../../../shared/modules/shared.module';
   @for (category of categories(); track category) {
   <li [routerLink]="['/products']" [queryParams]="{category : category.trim()}">
   <a (click)="selected.set(category) "
-  class="btn btn-neutral  bg-orange-900 text-orange-100"
+  class="btn btn-neutral  bg-orange-700 text-orange-100"
   [ngClass]="selected() === category ? 'bg-transparent text-orange-600' : ''">
   {{category}}</a>
   </li>

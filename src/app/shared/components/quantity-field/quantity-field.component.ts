@@ -7,7 +7,7 @@ import { cartActions } from '../../../cart/reducers/actions.types';
   selector: 'app-quantity-field',
   imports: [SharedModule],
   template : `
-  <form class="w-28 flex justify-between items-center border-1 border-orange-200 rounded-box px-2">
+  <form class="w-28 flex justify-between items-center border-1 border-orange-200 rounded-box px-2 p-2">
     
   <button type="button" (click)="decrement()" class="w-[20%]" 
   [ngClass]="newQuantity() === 1 ? 'cursor-not-allowed' : 'cursor-pointer'">

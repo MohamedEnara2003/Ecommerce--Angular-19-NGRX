@@ -9,7 +9,7 @@ import { CartService } from '../../../cart/service/cart.service';
   imports: [SharedModule, StarsRatingComponent],
   template : ` 
     @for (product of products(); track product) {
-<div class="w-full h-100 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+<div class="w-full h-100 max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm  ">
         <picture [routerLink]="['/products' , product.id]" [queryParams]="{category : product.category.trim()}"
         class="bg-white w-[95%] h-60 flex justify-center items-center my-1">
                         <img

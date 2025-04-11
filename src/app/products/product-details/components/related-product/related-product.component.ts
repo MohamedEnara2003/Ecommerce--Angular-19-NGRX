@@ -16,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
   <h1 class="text-2xl text-orange-950 capitalize font-bold m-2">related products</h1>
   </div>
   <app-product-card [products]="relatedProducts()"
-  class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-items-center"/>
+  class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 justify-items-center"/>
   </section>
   `
 })

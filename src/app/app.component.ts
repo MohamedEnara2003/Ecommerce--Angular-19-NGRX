@@ -12,7 +12,7 @@ import { productsActions } from './products/reducers/action-types';
   imports: [RouterOutlet, HeaderComponent],
   styleUrl: './app.component.css',
   template : `
-<section class=" w-full  bg-gray-50 ">
+<section class=" w-full  bg-white ">
 <app-header />
 <router-outlet/>
 </section>

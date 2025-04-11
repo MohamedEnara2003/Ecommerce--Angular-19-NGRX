@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/page/home.component';
+
 
 export const routes: Routes = [
-    {path : 'home' , component : HomeComponent },
     {path : 'products' ,
     loadComponent : () => import('./products/page/products.component').then((c) => c.ProductsComponent),
     },
@@ -14,6 +13,7 @@ export const routes: Routes = [
     loadComponent : () => import('./cart/page/cart.component')
     .then((c) => c.CartComponent),
     },
-    {path : '', redirectTo :'products' , pathMatch : 'full'}
+    {path : '', redirectTo :'products' , pathMatch : 'full'},
+    {path : '**', redirectTo :'products' , pathMatch : 'full'}
 
 ];
