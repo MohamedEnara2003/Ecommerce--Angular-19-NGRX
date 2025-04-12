@@ -21,7 +21,7 @@ ___________________________
 #9- Product Details Page
 #10- Cart Page
 
-![Alt text](/image-1.png)
+![Alt text](https://res.cloudinary.com/mohamedenara/image/upload/v1742416508/5_vrrrf9.jpg)
 ![Alt text](/image-2.png)
 ![Alt text](/image-3.png)
 ![Alt text](/image-4.png)
