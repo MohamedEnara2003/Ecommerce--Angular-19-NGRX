@@ -21,7 +21,7 @@ ___________________________
 #9- Product Details Page
 #10- Cart Page
 
-![Alt text](image-1.png)
-![Alt text](image-2.png)
-![Alt text](image-3.png)
-![Alt text](image-4.png)
+![Alt text](/image-1.png)
+![Alt text](/image-2.png)
+![Alt text](/image-3.png)
+![Alt text](/image-4.png)
