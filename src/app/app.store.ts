@@ -5,11 +5,13 @@ import { ActionReducer, ActionReducerMap } from '@ngrx/store';
 import { ProductByIdState, productReducer, productsReducer, ProductsState } from './products/reducers/products.reducer';
 import { cartReducer, cartStateKay } from './cart/reducers/cart.reducer';
 import { CartType } from './cart/interface/cart';
+import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 
 export interface AppState {
     products: ProductsState;
     productById : ProductByIdState;
-    carts : CartType[]
+    carts : CartType[] ,
+    router :  RouterReducerState
 }
 
 export function localStorageSyncReducer(
@@ -24,7 +26,8 @@ export function localStorageSyncReducer(
 export const appReducers :ActionReducerMap<AppState> = {
 products: productsReducer,
 productById: productReducer,
-carts : cartReducer
+carts : cartReducer, 
+router: routerReducer, 
 };
 
 

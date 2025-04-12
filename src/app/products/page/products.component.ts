@@ -1,16 +1,16 @@
-import { Component ,computed,inject,linkedSignal,OnInit,signal } from '@angular/core';
+import { Component ,computed,inject } from '@angular/core';
 import { Product } from '../interface/products';
 import { SharedModule } from '../../shared/modules/shared.module';
 import { select, Store } from '@ngrx/store';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import { combineLatest, map } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map, switchMap } from 'rxjs';
 import { LoadingComponent } from "../../shared/components/loading/loading.component";
 import { ErrorMsgComponent } from "../../shared/components/error-msg/error-msg.component";
 import { ProductCardComponent } from "../components/product-card/product-card.component";
 import { selectLoadProductsSuccess } from '../reducers/products.selectors';
 import { SortCategoryComponent } from "../components/sort-category/sort-category.component";
-import { ActivatedRoute } from '@angular/router';
 import { ProductsState } from '../reducers/products.reducer';
+import { selectQueryParams } from '../../router-reducers/router.selectors';
 
 @Component({
   selector: 'app-products',
@@ -28,7 +28,7 @@ import { ProductsState } from '../reducers/products.reducer';
     </div>
     @if( productsData()?.products?.length! > 0){
     <app-sort-category class="w-full" [categories]="categories()"/>
-    <app-product-card [products]="products()" 
+    <app-product-card [products]="products()!" 
     class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 justify-items-center"/>
     }
     <app-loading [isLoading]=" productsData()?.loading!"/>
@@ -37,36 +37,26 @@ import { ProductsState } from '../reducers/products.reducer';
 </section>
   `
 })
-export class ProductsComponent implements OnInit{
+export class ProductsComponent {
   private store = inject(Store) ;
-  private  activatedRoute = inject(ActivatedRoute) ;
 
-  productsData = toSignal<ProductsState>(this.store.pipe(select(selectLoadProductsSuccess)))
-  products = linkedSignal<Product[]>(() => this.productsData()?.products!) ;
+  productsData = toSignal<ProductsState>(this.store.pipe(select(selectLoadProductsSuccess)));
+  products = toSignal<Product[]>(
+  this.store.select(selectQueryParams).pipe(
+  map((Params) => Params['category'] as string | null),
+  switchMap((category) => this.store.select(selectLoadProductsSuccess).pipe(
+  map((res) => res.products.filter((products) => category === undefined  || products.category === category))
+  ))
+  )
+  );
 
   categories = computed<string[]>(() => 
-  this. productsData()?.products?.map((product) => product.category)
+  this.productsData()?.products?.map((product) => product.category)
   .filter((prevCategory , i) => {
   return i == this. productsData()?.products?.findIndex((curCategory) => prevCategory  === curCategory.category);
   })
   || []
   );
-
-  ngOnInit(): void {
-  this.getQueryCategory ()
-  }
-
-  private getQueryCategory () : void {
-  this.activatedRoute.queryParamMap.pipe(
-  map((queryParamMap) => { 
-  const category = queryParamMap.get('category')! ;
-  const filteredProducts = this.productsData()?.products.filter((product) => product.category === category  
-  || category === 'ALL' || category  === null);
-  this.products.set(filteredProducts!) ;
-  })
-  ).subscribe()
-  }
-  
 
 
 }

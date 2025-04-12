@@ -10,18 +10,19 @@ ___________________________
 # NGRX => State Management:
 #3- ngrx/effects
 #4- ngrx/store
-#5- ngrx/store-devtools
-#6- ngrx-store-localstorage
+#5- npm i @ngrx/router-store
+#6- ngrx/store-devtools
+#7- ngrx-store-localstorage
 ___________________________
 
 ## BackEnd:
-#7 fakestoreapi.com
+#8 fakestoreapi.com
 ___________________________
 
 ## Pages:
-#8- Products Page
-#9- Product Details Page
-#10- Cart Page
+#9- Products Page
+#10- Product Details Page
+#11- Cart Page
 ___________________________
 
 ## Images About Project

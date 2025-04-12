@@ -8,6 +8,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { ProductsEffects } from './products/reducers/productsEffects';
 import { appReducers, storeConfig } from './app.store';
 import { CartEffects } from './cart/reducers/cartEffect';
+import { provideRouterStore } from '@ngrx/router-store';
 
 const scrollConfig: InMemoryScrollingOptions = {
   scrollPositionRestoration: 'top',
@@ -21,8 +22,10 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
 
     provideStore( appReducers ,storeConfig),
+    provideRouterStore(),
     provideEffects([ProductsEffects , CartEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+
 
 
 ]

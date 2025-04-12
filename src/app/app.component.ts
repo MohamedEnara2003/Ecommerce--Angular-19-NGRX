@@ -5,15 +5,17 @@ import { HeaderComponent } from "./shared/components/header/header.component";
 import { cartActions } from './cart/reducers/actions.types';
 import { CartType } from './cart/interface/cart';
 import { productsActions } from './products/reducers/action-types';
+import { FooterComponent } from "./shared/components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   styleUrl: './app.component.css',
   template : `
 <section class=" w-full  bg-white ">
 <app-header />
 <router-outlet/>
+<app-footer />
 </section>
 `
 })
