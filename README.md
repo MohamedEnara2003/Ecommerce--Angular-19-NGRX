@@ -5,6 +5,7 @@
 ## Packages:
 #1- tailwindcss 
 #2- daisyui
+___________________________
 
 # NGRX => State Management:
 #3- ngrx/effects
@@ -15,13 +16,16 @@ ___________________________
 
 ## BackEnd:
 #7 fakestoreapi.com
+___________________________
 
 ## Pages:
 #8- Products Page
 #9- Product Details Page
 #10- Cart Page
+___________________________
 
-![Alt text](https://res.cloudinary.com/mohamedenara/image/upload/v1742416508/5_vrrrf9.jpg)
-![Alt text](/image-2.png)
-![Alt text](/image-3.png)
-![Alt text](/image-4.png)
+## Images About Project
+![Alt text](https://res.cloudinary.com/mohamedenara/image/upload/v1744424969/image-2_dc3ycb.png)
+![Alt text](https://res.cloudinary.com/mohamedenara/image/upload/v1744424970/image-3_xhfrbi.png)
+![Alt text](https://res.cloudinary.com/mohamedenara/image/upload/v1744424970/image-4_zf14dg.pngg)
+![Alt text](https://res.cloudinary.com/mohamedenara/image/upload/v1744424968/image-1_cueqbe.png)
